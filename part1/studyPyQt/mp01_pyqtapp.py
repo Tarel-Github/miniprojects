@@ -1,4 +1,4 @@
-# PyQt 복습
+# PyQt 복습 - 직접 디자인 코딩
 import sys
 from PyQt5.QtWidgets import *
 
