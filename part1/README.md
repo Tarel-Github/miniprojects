@@ -10,7 +10,8 @@
     - Qt Desinger
     - Naver OpenAPI
 
-<img src=https://github.com/Tarel-Github/miniprojects/blob/main/image/KakaoTalk_20230308_111503131_02.png?raw=true" width="800"/>
+
+<img src="https://raw.githubusercontent.com/hugoMGSung/miniprojects/main/images/naver_news2.png" width="780" />
 
 ## DB연동 GUI 개발 학습
 
