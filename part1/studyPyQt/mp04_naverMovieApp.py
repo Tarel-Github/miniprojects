@@ -77,7 +77,7 @@ class qtApp(QWidget):
                 imgLabel = QLabel()
                 imgLabel.setPixmap(QPixmap(image))
 
-                # 이미지 데이터를 저장할 수 있음
+                # 이미지 데이터를 저장할 수
                 # f = open(f'./studyPyQt/temp/image_{i+1}.png', mode ='wb')
                 # f.write(data)
                 # f.close()
