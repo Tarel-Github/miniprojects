@@ -21,5 +21,17 @@
 <img src="https://raw.githubusercontent.com/hugoMGSung/miniprojects/main/images/naver_movie.png" width="780" />
 
 ## DB연동 GUI 개발 학습
+- 주소록 프로그램 만들기
+    - Python 3.11.2
+    - MySQL 8.0 연동
+    - pymysql 모듈 사용
+    - PyQt5 . Qt Designer
+
+![주소록앱1](https://raw.githubusercontent.com/hugoMGSung/miniprojects/main/images/addressbook1.png)
+![주소록앱2](https://raw.githubusercontent.com/hugoMGSung/miniprojects/main/images/addressbook2.png)
+
+<img src="https://raw.githubusercontent.com/hugoMGSung/miniprojects/main/images/addressbook1.png" width="780" />
+<img src="https://raw.githubusercontent.com/hugoMGSung/miniprojects/main/images/addressbook2.png" width="780" />
+
 
 ## 미니프로젝트 실습
