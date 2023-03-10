@@ -30,8 +30,8 @@
 ![주소록앱1](https://raw.githubusercontent.com/hugoMGSung/miniprojects/main/images/addressbook1.png)
 ![주소록앱2](https://raw.githubusercontent.com/hugoMGSung/miniprojects/main/images/addressbook2.png)
 
-<img src="https://raw.githubusercontent.com/hugoMGSung/miniprojects/main/images/addressbook1.png" width="780" />
-<img src="https://raw.githubusercontent.com/hugoMGSung/miniprojects/main/images/addressbook2.png" width="780" />
+<!-- <img src="https://raw.githubusercontent.com/hugoMGSung/miniprojects/main/images/addressbook1.png" width="780" />
+<img src="https://raw.githubusercontent.com/hugoMGSung/miniprojects/main/images/addressbook2.png" width="780" /> -->
 
 
 ## 미니프로젝트 실습
