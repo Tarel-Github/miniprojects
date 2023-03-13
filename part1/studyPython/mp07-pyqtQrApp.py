@@ -1,7 +1,7 @@
 # QRCODE PyQT app
 import sys
 import qrcode
-from PyQt5 import uic
+from PyQt5 import uic, QtCore, QtGui
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import * #Qt.white...
@@ -29,7 +29,7 @@ class qtApp(QMainWindow):
         super().__init__()
         uic.loadUi('./studyPython/qrcodeApp.ui', self)
         self.setWindowTitle('Qrcode 생성앱 v0.1')
-        self.setWindowIcon(QIcon('./studyPyQt/qr-code.png'))
+        self.setWindowIcon(QIcon('./studyPython/qr-code.png'))
     
 
         # 시그널/슬롯

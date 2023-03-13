@@ -36,6 +36,16 @@
 ## 파이썬 관련 추가학습
 - QR코드 생성 앱
     - qrcode 모듈
+    - PyQt
 
+![QR코드 앱](https://raw.githubusercontent.com/hugoMGSung/miniprojects/main/images/qrcodeApp.png)
+
+- 컴퓨터 정보출력 앱
+    - psutil 모듈
+    - socket 모듈
+    - requests 모듈
+    - PyQt
+
+![QR코드 앱](https://raw.githubusercontent.com/hugoMGSung/miniprojects/main/images/comInfoApp.png)
 
 ## 미니프로젝트 실습
