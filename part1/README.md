@@ -33,5 +33,9 @@
 <!-- <img src="https://raw.githubusercontent.com/hugoMGSung/miniprojects/main/images/addressbook1.png" width="780" />
 <img src="https://raw.githubusercontent.com/hugoMGSung/miniprojects/main/images/addressbook2.png" width="780" /> -->
 
+## 파이썬 관련 추가학습
+- QR코드 생성 앱
+    - qrcode 모듈
+
 
 ## 미니프로젝트 실습
