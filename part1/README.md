@@ -46,6 +46,9 @@
     - requests 모듈
     - PyQt
 
-![QR코드 앱](https://raw.githubusercontent.com/hugoMGSung/miniprojects/main/images/comInfoApp.png)
+![컴퓨터 정보](https://raw.githubusercontent.com/hugoMGSung/miniprojects/main/images/comInfoApp.png)
+
+-- TTS (Text To Speech)
+    - gtts 모듈
 
 ## 미니프로젝트 실습
