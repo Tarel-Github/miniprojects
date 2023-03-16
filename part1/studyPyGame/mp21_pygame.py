@@ -21,6 +21,11 @@ while run :
             run = False
     
     # 배경음
-    win.blit(BG,(0,0))
+    win.blit(BG, (loop, 0))
+    win.blit(BG, (width + loop, 0))
+    if loop == -width: # -1000
+        loop = 0
+
+    loop -= 1
 
     pygame.display.update()
