@@ -48,16 +48,24 @@
 
 ![컴퓨터 정보](https://raw.githubusercontent.com/hugoMGSung/miniprojects/main/images/comInfoApp.png)
 
--- TTS (Text To Speech)
+- TTS (Text To Speech)
     - gtts 모듈
     - playsound 모듈
 
--- 암호해제 프로그램
+- 암호해제 프로그램
     - itertools, zipfile 모듈
 
--- 쓰레드 사용법
+- 쓰레드 사용법
     - GUI와 처리시간이 긴 로직을 실행하면 반드시 쓰레드 사용
 
--- 에메일 보내기 앱
+![쓰레드비교]()
+
+- 에메일 전송, 대량메일 전송
+
+- PyGame
+
 
 ## 미니프로젝트 실습
+- 키오스크 앱 만들기
+
+![팀리포지토리](https://github.com/Tarel-IoT-PK/Campus)
