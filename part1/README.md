@@ -67,6 +67,20 @@
 <img src="https://raw.githubusercontent.com/hugoMGSung/miniprojects/main/images/dinorun.png" width="780" />
 
 <img src="https://raw.githubusercontent.com/hugoMGSung/miniprojects/main/images/pygame1.png" width="780" />
+게임 화면
+
+
+- 전국 대학교 위치맵
+    - Pandas
+    - folium
+    - PyQt
+        - QWebEnginView 추가
+
+<img src="https://raw.githubusercontent.com/hugoMGSung/miniprojects/main/images/folium_gui.png" width="780" />
+
+
+- 계산기앱
+    - PyQt
 
 
 ## 미니프로젝트 실습
