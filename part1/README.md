@@ -64,7 +64,10 @@
 
 - 게임만들기, PyGame
     - Pygame
+<img src="https://raw.githubusercontent.com/hugoMGSung/miniprojects/main/images/dinorun.png" width="780" />
+
 <img src="https://raw.githubusercontent.com/hugoMGSung/miniprojects/main/images/pygame1.png" width="780" />
+
 
 ## 미니프로젝트 실습
 - 키오스크 앱 만들기
