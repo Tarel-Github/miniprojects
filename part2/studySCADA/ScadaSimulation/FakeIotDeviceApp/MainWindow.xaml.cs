@@ -2,7 +2,7 @@
 using FakeIotDeviceApp.Models;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
-
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -28,9 +28,9 @@ namespace FakeIotDeviceApp
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
-        Faker<SensorInfo> FakeHomeSensor = null;            // 가짜 스마트홈 센서값 변수
+        Faker<SensorInfo> FakeHomeSensor { get; set; } = null;            // 가짜 스마트홈 센서값 변수
 
-        MqttClient client;
+        MqttClient Client { get; set;}
         Thread MqttThread = null;
 
         public MainWindow()
@@ -76,7 +76,7 @@ namespace FakeIotDeviceApp
             // 센서값 MQTT
 
 
-            //var info = FakeHomeSensor.Generate();
+            // var info = FakeHomeSensor.Generate();
 
             // RtbLog에 출력
             MqttThread = new Thread( () =>
@@ -85,11 +85,22 @@ namespace FakeIotDeviceApp
                 {
                     // 가짜 스마트홈 센서값 생성
                     SensorInfo info = FakeHomeSensor.Generate();
+                    // 릴리즈(배포) 때는 주석처리/삭제
                     Debug.WriteLine($"{info.Home_Id} / {info.Room_Name} / {info.Sensing_DateTime} / {info.Temp}");
-                    // 센서값 MQTT브로커에 전송(publish)
-
-                    // RtbLog에 출력
-
+                    // 객체 직렬화 (객체데이터를 xml 이나 json등의 문자열로 변환)
+                    var jsonValue = JsonConvert.SerializeObject(info, Formatting.Indented);
+                    // 센서값 MQTT브로커에 전송(Publish)
+                    Client.Publish("SmartHome/IoTData/", Encoding.Default.GetBytes(jsonValue));
+                    // 스레드와 UI스레드간 충돌이 안나도록 변경
+                    this.Invoke(new Action(() => {
+                        // RtbLog에 출력
+                        FlowDocument flowDoc = new FlowDocument();
+                        Paragraph paragraph = new Paragraph();
+                        paragraph.Inlines.Add(new Run(jsonValue));
+                        flowDoc.Blocks.Add(paragraph);
+                        RtbLog.Document = flowDoc;
+                        RtbLog.ScrollToEnd();           // 스크롤 제일 밑으로 보내기
+                    }));
                     // 1초동안 대기
                     Thread.Sleep(1000);
                 }
@@ -100,15 +111,15 @@ namespace FakeIotDeviceApp
 
         private void ConnectMqttBroker()
         {
-            client = new MqttClient(TxtMqttBrokerIp.Text);
-            client.Connect("SmartHomeDev");
+            Client = new MqttClient(TxtMqttBrokerIp.Text);
+            Client.Connect("SmartHomeDev");
         }
 
         private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (client != null && client.IsConnected == true)
+            if (Client != null && Client.IsConnected == true)
             {
-                client.Disconnect();        // 접속을 안끊으면 메모리 상에 계속 남아 있다.
+                Client.Disconnect();        // 접속을 안끊으면 메모리 상에 계속 남아 있다.
             }
             
             if (MqttThread != null)
