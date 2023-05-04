@@ -93,13 +93,9 @@ namespace FakeIotDeviceApp
                     Client.Publish("SmartHome/IoTData/", Encoding.Default.GetBytes(jsonValue));
                     // 스레드와 UI스레드간 충돌이 안나도록 변경
                     this.Invoke(new Action(() => {
-                        // RtbLog에 출력
-                        FlowDocument flowDoc = new FlowDocument();
-                        Paragraph paragraph = new Paragraph();
-                        paragraph.Inlines.Add(new Run(jsonValue));
-                        flowDoc.Blocks.Add(paragraph);
-                        RtbLog.Document = flowDoc;
-                        RtbLog.ScrollToEnd();           // 스크롤 제일 밑으로 보내기
+                        // RtbLog에 출력                        
+                        RtbLog.AppendText($"{jsonValue}\n");
+                        RtbLog.ScrollToEnd(); // 스크롤 제일 밑으로 보내기
                     }));
                     // 1초동안 대기
                     Thread.Sleep(1000);
