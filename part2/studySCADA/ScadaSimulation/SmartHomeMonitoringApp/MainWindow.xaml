@@ -30,7 +30,8 @@
                     <MenuItem.Icon>
                         <iconPacks:PackIconJamIcons Kind="FileF"/>
                     </MenuItem.Icon>
-                    <MenuItem x:Name="MnuStartSubsribe" Header="시작">
+                    
+                    <MenuItem x:Name="MnuStartSubsribe" Header="시작" Click="MnuStartSubsribe_Click">
                         <MenuItem.Icon>
                             <iconPacks:PackIconJamIcons Kind="PlayCircleF"/>
                         </MenuItem.Icon>

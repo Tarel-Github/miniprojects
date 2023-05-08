@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Diagnostics;
+using SmartHomeMonitoringApp.Views;
 
 namespace SmartHomeMonitoringApp
 {
@@ -31,13 +32,27 @@ namespace SmartHomeMonitoringApp
         {
             // <Frame> ==> Page.xaml
             // <ContentControl> ==> UserControl.xaml
-            ActiveItem.Content = new Views.DataBaseControl();
+            // ActiveItem.Content = new Views.DataBaseControl();
         }
 
         private void MnuExitSubsribe_Click(object sender, RoutedEventArgs e)
         {
             Process.GetCurrentProcess().Kill();  // 작업관리자에서 프로세스 종료! 이게 더 빠름
             //Environment.Exit(0);    // 끝내기      // 0이 일반종료, 이외에도 코드가 많음, 종료 속도가 조금 느림
+        }
+
+        // MQTT 시작메뉴 클릭이벤트 핸들러
+        private void MnuStartSubsribe_Click(object sender, RoutedEventArgs e)
+        {
+            var mqttPopWin = new MqttPopupWindow();
+            mqttPopWin.Owner = this;
+            mqttPopWin.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            var result = mqttPopWin.ShowDialog();
+
+            if(result == true)
+            {
+                ActiveItem.Content = new Views.DataBaseControl();
+            }
         }
     }
 }
