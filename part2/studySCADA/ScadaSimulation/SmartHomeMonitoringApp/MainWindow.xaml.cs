@@ -15,6 +15,9 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Diagnostics;
 using SmartHomeMonitoringApp.Views;
+using MahApps.Metro.Controls.Dialogs;
+using SmartHomeMonitoringApp.Logics;
+using System.ComponentModel;
 
 namespace SmartHomeMonitoringApp
 {
@@ -51,8 +54,45 @@ namespace SmartHomeMonitoringApp
 
             if(result == true)
             {
-                ActiveItem.Content = new Views.DataBaseControl();
+                var userControl = new Views.DataBaseControl();
+                ActiveItem.Content = userControl;
+                StsSelScreen.Content = "DataBase Monitoring";
             }
+        }
+
+        private async void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;        // e. Cancel을 true 하고 시작, 이거 없으면 이벤트가 발생하지 않는다.
+            var mySettings = new MetroDialogSettings 
+                                {
+                                    AffirmativeButtonText = "끝내기",
+                                    NegativeButtonText = "취소",
+                                    AnimateShow = true,
+                                    AnimateHide = true,
+            };
+            
+
+            var result = await this.ShowMessageAsync("프로그램 끝내기", "프로그램을 끝내시겠습니까?", 
+                                                     MessageDialogStyle.AffirmativeAndNegative, mySettings);
+            if(result == MessageDialogResult.Negative) 
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                if(Commons.MQTT_CLIENT != null && Commons.MQTT_CLIENT.IsConnected)
+                {
+                    Commons.MQTT_CLIENT.Disconnect();
+                }
+                Process.GetCurrentProcess().Kill();     // 가장 확실
+            }
+
+        }
+
+        // 창을 닫을 때 사용하는 MetroWindow_Closing 이벤트를 여기서 불러온다.
+        private void BtnExitProgram_Click(object sender, RoutedEventArgs e)
+        {
+            this.MetroWindow_Closing(sender, new CancelEventArgs());
         }
     }
 }
