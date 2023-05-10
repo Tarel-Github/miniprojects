@@ -45,10 +45,22 @@ namespace SmartHomeMonitoringApp.Views
 
             IsConnected = false;        // 아직 접속이 안되었음
             BtnConnDb.IsChecked = false;
+
+            if (Commons.MQTT_CLIENT != null && Commons.MQTT_CLIENT.IsConnected)
+            {
+                IsConnected = true;
+                BtnConnDb.IsChecked = true;
+                Commons.MQTT_CLIENT.MqttMsgPublishReceived += MQTT_CLIENT_MqttMsgPublishReceived;
+            }
         }
 
         // 토글버튼 체크(1: 접속/2: 접속끊기) 이벤트 핸들러
         private void BtnConnDb_Click(object sender, RoutedEventArgs e)
+        {
+            ConnectDB();
+        }
+
+        private void ConnectDB()
         {
             if (IsConnected == false)
             {
