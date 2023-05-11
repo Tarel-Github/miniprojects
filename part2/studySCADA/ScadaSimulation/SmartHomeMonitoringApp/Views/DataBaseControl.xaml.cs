@@ -31,6 +31,10 @@ namespace SmartHomeMonitoringApp.Views
 
         Thread MqttThread { get; set; } // 이게 없으면 UI 컨트롤이 어려워진다.
 
+        // MQTT Subscribiton text 과도문제로 속도저하를 잡기위해 변수
+        // 23.05.11 09:29 SMG
+
+        int MaxCount { get; set; } = 50;
 
         public DataBaseControl()
         {
@@ -49,6 +53,7 @@ namespace SmartHomeMonitoringApp.Views
             if (Commons.MQTT_CLIENT != null && Commons.MQTT_CLIENT.IsConnected)
             {
                 IsConnected = true;
+                BtnConnDb.Content = "DB 연결중...";
                 BtnConnDb.IsChecked = true;
                 Commons.MQTT_CLIENT.MqttMsgPublishReceived += MQTT_CLIENT_MqttMsgPublishReceived;
             }
@@ -130,9 +135,17 @@ namespace SmartHomeMonitoringApp.Views
         {
             // 예외처리 필요
             this.Invoke(() => {
+                if(MaxCount <= 0)
+                {
+                    TxtLog.Text = string.Empty;
+                    TxtLog.Text += ">>> 문서 건수가 많아져서 초기화! \n";
+                    TxtLog.ScrollToEnd();
+                    MaxCount = 50;  // 테스트할땐 10, 운영시는 50
+                }
+
                 TxtLog.Text += $"{msg}\n";
                 TxtLog.ScrollToEnd();
-                
+                MaxCount--;
             });
         }
 
