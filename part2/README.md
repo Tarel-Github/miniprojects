@@ -24,4 +24,5 @@
 <img src="https://raw.githubusercontent.com/hugoMGSung/miniprojects/main/images/smarthome_monitor1.gif" width="780" />
 
 스마트홈 모니터링 시각화
+<img src="https://raw.githubusercontent.com/hugoMGSung/miniprojects/main/images/smarthome_monitor2.png" width="780" />
 <img src="https://raw.githubusercontent.com/hugoMGSung/miniprojects/main/images/smarthome_monitor2.gif" width="780" />
