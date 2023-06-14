@@ -155,6 +155,7 @@ namespace SmartHomeMonitoringApp.Views
             var msg = Encoding.UTF8.GetString(e.Message);
             UpdateLog(msg);
             SetToDataBase(msg, e.Topic);        // 실제 DB에 저장처리
+
         }
 
         // DB 저장처리 메서드

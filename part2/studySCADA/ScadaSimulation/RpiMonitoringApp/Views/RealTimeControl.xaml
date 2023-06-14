@@ -20,6 +20,11 @@
             <Label Content="RealTime Monitoring" Style="{StaticResource MahApps.Styles.Label}"
                    FontSize="25" FontWeight="Bold" VerticalAlignment="Center"/>
             <Label x:Name="LblSensingDt" Content="2023-05-10 10:34:45" FontSize="14" VerticalAlignment="Center" Margin="20, 0"/>
+            <Label x:Name="LblDoorStat" Content="aaaa" FontSize="14" VerticalAlignment="Center" Margin="20, 0"/>
+
+            <Button x:Name="BtnOpen" FontSize="14" Content="Open" Style="{StaticResource MahApps.Styles.Button.Dialogs.Accent}" Margin="5, 0" Click="BtnOpen_Click" />
+            <Button x:Name="BtnClose" FontSize="14" Content="Close" Style="{StaticResource MahApps.Styles.Button.Dialogs.AccentHighlight}" Margin="5, 0" Click="BtnClose_Click" />
+
         </StackPanel>
 
         <Grid Grid.Row="1" Margin="10">
